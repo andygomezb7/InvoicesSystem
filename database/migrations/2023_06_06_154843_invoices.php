@@ -16,11 +16,12 @@ class Invoices extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('number');
-            $table->date('create_date');
+            $table->date('create_date')->nullable();
             $table->integer('client_id');
             $table->string('name_invoice');
             $table->string('nit_invoice');
             $table->string('address_invoice');
+            $table->integer('paytype')->nullable();
             $table->timestamps();
         });
     }

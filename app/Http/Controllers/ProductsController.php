@@ -21,6 +21,11 @@ class ProductsController extends Controller
         return view('products', ['info' => [],'posts' => $posts]);
     }
 
+    public function invoice()
+    {
+        return $this->belongsTo(Invoices::class, 'id_invoice');
+    }
+    
     public function edit($id = '')
     {
         $info = \App\Products::findOrFail($id);

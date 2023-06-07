@@ -13,7 +13,12 @@ class ProductosAssigneds extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('productos_assigned', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('id_producto');
+            $table->string('id_invoice');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class ProductosAssigneds extends Migration
      */
     public function down()
     {
-        //
+            Schema::dropIfExists('productos_assigned');
     }
 }
